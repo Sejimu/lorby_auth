@@ -54,7 +54,7 @@ class _LogInScreenState extends State<LogInScreen> {
               ),
               Container(
                 margin: EdgeInsets.only(top: 28),
-                width: 328,
+                width: 366,
                 height: 52,
                 padding: EdgeInsets.fromLTRB(13, 16, 13, 16),
                 decoration: BoxDecoration(
@@ -72,7 +72,7 @@ class _LogInScreenState extends State<LogInScreen> {
               ),
               Container(
                 margin: const EdgeInsets.fromLTRB(0, 14, 0, 24),
-                width: 328,
+                width: 366,
                 height: 52,
                 padding: const EdgeInsets.fromLTRB(13, 16, 13, 16),
                 decoration: BoxDecoration(
@@ -97,7 +97,7 @@ class _LogInScreenState extends State<LogInScreen> {
                 ),
               ),
               Container(
-                width: 343,
+                width: 366,
                 height: 50,
                 decoration: BoxDecoration(
                   color: btnReady ? Color(0xff292929) : Color(0xffD7D7D7),
@@ -133,9 +133,9 @@ class _LogInScreenState extends State<LogInScreen> {
                   child: const Text(
                     "У меня еще нет аккаунта",
                     style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black),
                   ))
             ],
           ),
