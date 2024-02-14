@@ -8,16 +8,35 @@ class LogInScreen extends StatefulWidget {
 }
 
 class _LogInScreenState extends State<LogInScreen> {
-  var btnReady = false;
   bool _obscurepass = true;
-  final _usernameController = TextEditingController();
-  final _passwordController = TextEditingController();
+  TextEditingController _usernameController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  bool btnReady = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _usernameController.addListener(_btnSwitcher);
+    _passwordController.addListener(_btnSwitcher);
+  }
+
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  void _btnSwitcher() {
+    setState(() {
+      btnReady = _usernameController.text.isNotEmpty &&
+          _passwordController.text.isNotEmpty;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('Login Screen'),
-      // ),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -91,8 +110,12 @@ class _LogInScreenState extends State<LogInScreen> {
                           borderRadius: BorderRadius.circular(12))),
                   onPressed: btnReady
                       ? () {
-                          print(_usernameController.text);
-                          print(_passwordController.text);
+                          // print(_usernameController.text);
+                          // print(_passwordController.text);
+                          if (_usernameController.text == "qwerty" &&
+                              _passwordController.text == "123456") {
+                            Navigator.of(context).pushNamed('/home');
+                          }
                         }
                       : null,
                   child: Text(
