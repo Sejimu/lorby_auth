@@ -10,10 +10,11 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
   bool _obscurepass = true;
   bool _obscurepassConfirm = true;
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _userloginController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _passwordConfirmController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _userloginController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _passwordConfirmController =
+      TextEditingController();
   bool btnReady = false;
 
   @override
@@ -56,66 +57,65 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   Color _passwordTextColor() {
     String password = _passwordController.text;
-    // Проверка условий, возвращаем соответствующий цвет в зависимости от результата проверки
+
     if (password.length >= 8 &&
         password.length <= 15 &&
         password.contains(RegExp(r'[a-z]')) &&
         password.contains(RegExp(r'[A-Z]')) &&
         password.contains(RegExp(r'[0-9]')) &&
         password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-      return Colors.black; // Зеленый, если пароль соответствует условиям
+      return Colors.black;
     } else if (password.isNotEmpty) {
-      return Colors.red; // Красный, если пароль не соответствует условиям
+      return Colors.red;
     }
     return Colors.black;
   }
 
   Color _firstTextColor() {
     String password = _passwordController.text;
-    // Проверка условий, возвращаем соответствующий цвет в зависимости от результата проверки
+
     if (password.length >= 8 && password.length <= 15) {
-      return Colors.green; // Зеленый, если пароль соответствует условиям
+      return Colors.green;
     } else if (password.isNotEmpty) {
-      return Colors.red; // Красный, если пароль не соответствует условиям
+      return Colors.red;
     } else {
-      return Colors.grey; // Серый, если поле пароля пустое
+      return Colors.grey;
     }
   }
 
   Color _secondTextColor() {
     String password = _passwordController.text;
-    // Проверка условий, возвращаем соответствующий цвет в зависимости от результата проверки
+
     if (password.contains(RegExp(r'[a-z]')) &&
         password.contains(RegExp(r'[A-Z]'))) {
-      return Colors.green; // Зеленый, если пароль соответствует условиям
+      return Colors.green;
     } else if (password.isNotEmpty) {
-      return Colors.red; // Красный, если пароль не соответствует условиям
+      return Colors.red;
     } else {
-      return Colors.grey; // Серый, если поле пароля пустое
+      return Colors.grey;
     }
   }
 
   Color _thirdTextColor() {
     String password = _passwordController.text;
-    // Проверка условий, возвращаем соответствующий цвет в зависимости от результата проверки
+
     if (password.contains(RegExp(r'[0-9]'))) {
-      return Colors.green; // Зеленый, если пароль соответствует условиям
+      return Colors.green;
     } else if (password.isNotEmpty) {
-      return Colors.red; // Красный, если пароль не соответствует условиям
+      return Colors.red;
     } else {
-      return Colors.grey; // Серый, если поле пароля пустое
+      return Colors.grey;
     }
   }
 
   Color _fourthTextColor() {
     String password = _passwordController.text;
-    // Проверка условий, возвращаем соответствующий цвет в зависимости от результата проверки
     if (password.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-      return Colors.green; // Зеленый, если пароль соответствует условиям
+      return Colors.green;
     } else if (password.isNotEmpty) {
-      return Colors.red; // Красный, если пароль не соответствует условиям
+      return Colors.red;
     } else {
-      return Colors.grey; // Серый, если поле пароля пустое
+      return Colors.grey;
     }
   }
 
@@ -139,7 +139,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             const SizedBox(
               height: 40,
             ),
-            Center(
+            const Center(
               child: Text(
                 "Создать аккаунт \n Lorby ",
                 textAlign: TextAlign.center,
@@ -288,7 +288,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
             ),
             _passwordConfirmColor() == Colors.red
-                ? Padding(
+                ? const Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 18.0),
                     child: Text(
                       "Пароли не совпадают",
@@ -312,7 +312,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           borderRadius: BorderRadius.circular(12))),
                   onPressed: btnReady
                       ? () {
-                          Navigator.of(context).pushNamed('/home');
+                          Navigator.of(context).pushNamed('/confirm');
                         }
                       : null,
                   child: Text(

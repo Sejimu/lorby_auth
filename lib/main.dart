@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/confirm_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
@@ -20,6 +21,7 @@ class LorbyApp extends StatelessWidget {
         "/login": (context) => const LogInScreen(),
         "/home": (context) => const HomeScreen(),
         "/register": (context) => const RegisterScreen(),
+        "/confirm": (context) => const ConfirmScreen(),
       },
     );
   }
