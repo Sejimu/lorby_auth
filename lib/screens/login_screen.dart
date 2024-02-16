@@ -127,16 +127,17 @@ class _LogInScreenState extends State<LogInScreen> {
                 ),
               ),
               TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed("/register");
-                  },
-                  child: const Text(
-                    "У меня еще нет аккаунта",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black),
-                  ))
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/register");
+                },
+                child: const Text(
+                  "У меня еще нет аккаунта",
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black),
+                ),
+              )
             ],
           ),
         ),
